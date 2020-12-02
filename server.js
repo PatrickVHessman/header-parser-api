@@ -8,9 +8,12 @@ app.get('/', (req, res) => {
 
 app.get('/api/whoami', (req, res) => {
     let ipaddress = req.connection.remoteAddress;
+    if (ipaddress.substr(0, 7) == "::ffff:") {
+  ipaddress = ipaddress.substr(7)
+}
+
     let language = req.headers["accept-language"];
     let software = req.headers['user-agent'];
-    console.log(software);
 
     let obj = {
         ipaddress: ipaddress,
