@@ -12,6 +12,8 @@ app.get('/api/whoami', (req, res) => {
   ipaddress = ipaddress.substr(7)
 }
 
+
+
     let language = req.headers["accept-language"];
     let software = req.headers['user-agent'];
 
@@ -20,6 +22,9 @@ app.get('/api/whoami', (req, res) => {
         language: language,
         software: software
     }
+
+    console.log(obj);
+
     res.send(obj);
 });
 
